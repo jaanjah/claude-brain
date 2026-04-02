@@ -1,0 +1,5 @@
+projects/
+history.jsonl
+settings.local.json
+*.local.*
+*.env
