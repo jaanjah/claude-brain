@@ -17,15 +17,44 @@ description: Git commit, branch, and PR workflows. Use when committing code, cre
 - Breaking changes: use `!` after type — `feat!: remove legacy API`
 
 ## Branch strategy (trunk-based)
-- Push small changes directly to `main`
-- Use short-lived feature branches (hours, not days) for larger work
+- **NEVER commit directly to main** — always use feature branches
+- Always check `git branch --show-current` before any edit
+- Use short-lived feature branches: `feat/description`, `fix/description`, `chore/description`
 - Squash merge PRs — one commit per feature/fix in main's history
 - Delete branches immediately after merge
 
 ## Before committing
-1. Run linter and fix issues
-2. Run tests if they exist
-3. Check `git diff` — no secrets, no debug logs, no unrelated changes
+1. Verify you're NOT on main: `git branch --show-current`
+2. Run linter and fix issues
+3. Run tests if they exist
+4. Check `git diff` — no secrets, no debug logs, no unrelated changes
+
+## Creating a PR
+```bash
+# 1. Ensure you're on main and up to date
+git checkout main && git pull
+
+# 2. Create feature branch
+git checkout -b feat/my-feature
+
+# 3. Make changes, commit
+git add <files>
+git commit -m "feat: add my feature"
+
+# 4. Push and create PR
+git push -u origin feat/my-feature
+gh pr create \
+  --title "feat: add my feature" \
+  --body "$(cat <<'EOF'
+## Summary
+- What changed and why
+
+## Test plan
+- [ ] How to verify
+EOF
+)" \
+  --assignee jaanjah
+```
 
 ## PR description
 - **What**: what does this change do
