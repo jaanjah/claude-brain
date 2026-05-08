@@ -160,7 +160,10 @@ The diff already shows that. The message should explain *why* (e.g., "Numeric co
 - **Never commit directly to `main`** — always a feature branch.
 - Always check `git branch --show-current` before any edit.
 - Short-lived branches: `feat/desc`, `fix/desc`, `chore/desc`, `docs/desc`, `refactor/desc`.
-- Squash merge — one commit per feature/fix in `main`'s history.
+- Merge style — pick to **preserve granular Conventional Commits**:
+  - `--merge` (merge commit): default; keeps every commit, adds a merge node.
+  - `--rebase` (linear history): keeps every commit, no merge node — preferred for clean `git log --oneline`.
+  - `--squash`: only for WIP-heavy PRs where intermediate commits are noise. Squashing **destroys per-commit conventional-commit metadata**, which release tooling (semantic-release, release-please, changesets) reads.
 - Delete branches immediately after merge.
 - Never force-push to `main`.
 
@@ -185,7 +188,7 @@ EOF
   --assignee jaanjah
 ```
 
-PR titles **also follow conventional commits** — they become the squash commit subject.
+PR titles **also follow conventional commits** — they become the merge/squash commit subject when squash is used.
 
 ---
 

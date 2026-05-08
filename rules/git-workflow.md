@@ -26,7 +26,7 @@ Types:
 - **Never commit directly to main** — always feature branch
 - Always check `git branch --show-current` before any edit
 - Branch names: `feat/desc`, `fix/desc`, `chore/desc`, `docs/desc`, `refactor/desc`
-- Squash merge to main; delete branch after merge
+- Always merge with `--merge` (merge commit). Never `--rebase`, never `--squash`. Granular Conventional Commits stay intact. Delete branch after merge.
 - One logical change per commit
 - Never force-push to main
 - All commits SSH-signed
