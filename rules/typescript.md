@@ -1,3 +1,13 @@
+---
+paths:
+  - "**/*.{ts,tsx,mts,cts,js,jsx,mjs,cjs}"
+  - "**/tsconfig*.json"
+  - "**/package.json"
+  - "**/.npmrc"
+  - "**/eslint.config.*"
+  - "**/.eslintrc*"
+---
+
 # TypeScript Rules
 
 Always use strict TypeScript:
