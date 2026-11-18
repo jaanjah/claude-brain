@@ -15,7 +15,7 @@ skills/                # On-demand workflows (invoked when relevant)
   ├── hetzner-deploy/  # VM provisioning, Caddy, Tailscale, backups, monitoring
   ├── podman/          # Quadlets, Containerfiles, rootless gotchas, auto-update
   ├── security-audit/  # Code, infra, container, supply chain audit checklist
-  └── ts-conventions/  # tsconfig, patterns, ESLint flat config, modern APIs
+  └── ts-conventions/  # tsconfig (TS 7), patterns, Biome, Bun setup, modern APIs
 sync.sh                # Symlinks everything into ~/.claude/ for global use
 ```
 
